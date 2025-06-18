@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good for People - Home (Nature Theme)</title>
+    <meta name="description" content="Good for People is a non-profit organization dedicated to empowering communities through food distribution, educational programs, healthcare services, and sustainable development. Join us to make a positive impact globally.">
+    <link rel="icon" href="https://i.ibb.co/kV7YWpNL/logo-small.png" type="image/png">
+    
+    <!-- Google Fonts for a clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind CSS configuration (MUST stay in HTML as it's JS)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Nature-Friendly, Sunset Orange Theme
+                        'sunset-orange': '#FF7043',  // Vibrant sunset orange for primary actions
+                        'caramel-brown': '#8B4513',  // Rich, earthy brown for grounding elements
+                        'earth-green': '#6B8E23',    // Muted olive green for complementary accents
+                        'sky-blue-light': '#87CEEB', // Light sky blue for soft accents/links
+                        'sand-beige': '#FDF5E6',     // Warm, light beige for backgrounds
+                        'forest-dark': '#2F4F4F',    // Dark cyan/forest green for deep text/elements
+                        'white-opacity-70': 'rgba(255, 255, 255, 0.7)', // For text on darker backgrounds
+                        'black-opacity-60': 'rgba(0, 0, 0, 0.6)', // Overlay for hero image
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'], // Keep Inter for all text
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for the Home Page */
+        body {
+            font-family: var(--font-sans);
+            color: #4B5563; /* Medium gray for general text (closer to nature tone) */
+            background-color: #F8F8F8; /* Light background */
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-sans);
+            color: #374151; /* Darker gray for headings */
+            font-weight: 700;
+        }
+
+        a {
+            color: #FF7043; /* Sunset orange for links */
+            transition: color 0.2s ease-in-out;
+        }
+        a:hover {
+            color: #E65100; /* Darker orange on hover */
+        }
+
+        /* Hero Section Background (Scenic Nature) */
+        #home {
+            background-image: url('https://i.ibb.co/hK8b1gW/sunset-nature.webp'); /* Scenic sunset nature image */
+            background-size: cover;
+            background-position: center bottom; /* Adjust to show more of the sunset */
+            position: relative;
+            background-attachment: fixed; /* Parallax effect */
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+            z-index: 1;
+        }
+        #home > div {
+            position: relative;
+            z-index: 2;
+            color: #FFFFFF; /* White text on dark overlay */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Subtle shadow for text readability */
+        }
+        #home h1 {
+            color: #FFFFFF;
+        }
+        #home p {
+            color: #E0E0E0; /* Slightly off-white for body text */
+        }
+
+        /* Header */
+        header {
+            background-color: #FF7043; /* Sunset Orange */
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Deeper shadow */
+        }
+        header a {
+            color: #FFFFFF;
+            transition: color 0.2s ease-in-out;
+        }
+        header a:hover {
+            color: #FDD835; /* Gold/Yellow on hover */
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Header -->
+    <header class="text-white p-4 shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold flex items-center gap-2">
+                <img src="https://i.ibb.co/6P2L2FH/logo.png" alt="Good for People Logo" class="h-8 w-8 rounded-full"> 
+                Good for People
+            </a>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="hover:text-caramel-brown transition-colors">About Us</a></li>
+                    <li><a href="#services" class="hover:text-caramel-brown transition-colors">Our Services</a></li>
+                    <li><a href="#technologies" class="hover:text-caramel-brown transition-colors">Our Technologies</a></li>
+                    <li><a href="#impact" class="hover:text-caramel-brown transition-colors">Our Impact</a></li>
+                    <li><a href="#team" class="hover:text-caramel-brown transition-colors">Our Team</a></li> 
+                    <li><a href="#sponsors" class="hover:text-caramel-brown transition-colors">Sponsors</a></li>
+                    <li><a href="#budget" class="hover:text-caramel-brown transition-colors">Budget</a></li>
+                    <li><a href="#gallery" class="hover:text-caramel-brown transition-colors">Gallery</a></li>
+                    <li><a href="#faq" class="hover:text-caramel-brown transition-colors">FAQ</a></li>
+                    <li><a href="#inquiry" class="hover:text-caramel-brown transition-colors">Inquiry</a></li>
+                    <li><a href="#contact" class="hover:text-caramel-brown transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="h-screen flex items-center justify-center text-white text-center">
+        <div class="bg-black-opacity-60 p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+            <h1 class="text-5xl font-extrabold mb-4">Empowering Communities, Inspiring Change</h1>
+            <p class="text-xl mb-8">Your mission to create positive impact begins here. Together, we can make a difference!</p>
+            <p class="text-lg leading-relaxed mt-8">
+                Good for People is dedicated to fostering positive change by empowering communities worldwide.
+                Through our various initiatives, we strive to meet essential needs and create sustainable
+                opportunities for growth, ensuring a brighter future for all. Join us in making a lasting impact.
+            </p>
+        </div>
+    </section>
+
+    <!-- Basic JavaScript for smooth scrolling (only for this isolated example) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

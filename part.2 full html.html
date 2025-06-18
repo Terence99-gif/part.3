@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good for People - Creating Positive Impact & Community Empowerment</title>
+    <meta name="description" content="Good for People is a non-profit organization dedicated to empowering communities through food distribution, educational programs, healthcare services, and sustainable development. Join us to make a positive impact globally.">
+    <link rel="icon" href="https://i.ibb.co/kV7YWpNL/logo-small.png" type="image/png">
+    
+    <!-- Google Fonts for a clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind CSS configuration (MUST stay in HTML as it's JS)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Nature-Friendly, Sunset Orange Theme
+                        'sunset-orange': '#FF7043',  // Vibrant sunset orange for primary actions
+                        'caramel-brown': '#8B4513',  // Rich, earthy brown for grounding elements
+                        'earth-green': '#6B8E23',    // Muted olive green for complementary accents
+                        'sky-blue-light': '#87CEEB', // Light sky blue for soft accents/links
+                        'sand-beige': '#FDF5E6',     // Warm, light beige for backgrounds
+                        'forest-dark': '#2F4F4F',    // Dark cyan/forest green for deep text/elements
+                        'white-opacity-70': 'rgba(255, 255, 255, 0.7)', // For text on darker backgrounds
+                        'black-opacity-60': 'rgba(0, 0, 0, 0.6)', // Overlay for hero image
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'], // Keep Inter for all text
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for animations and enhanced visuals (Nature-Friendly, Sunset Orange Theme) */
+        body {
+            font-family: var(--font-sans);
+            color: #4B5563; /* Medium gray for general text (closer to nature tone) */
+            background-color: #F8F8F8; /* Light background */
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-sans);
+            color: #374151; /* Darker gray for headings */
+            font-weight: 700;
+        }
+
+        a {
+            color: #FF7043; /* Sunset orange for links */
+            transition: color 0.2s ease-in-out;
+        }
+        a:hover {
+            color: #E65100; /* Darker orange on hover */
+        }
+
+        /* Hero Section Background (Scenic Nature) */
+        #home {
+            background-image: url('https://i.ibb.co/hK8b1gW/sunset-nature.webp'); /* Scenic sunset nature image */
+            background-size: cover;
+            background-position: center bottom; /* Adjust to show more of the sunset */
+            position: relative;
+            background-attachment: fixed; 
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 1;
+        }
+        #home > div {
+            position: relative;
+            z-index: 2;
+            color: #FFFFFF; /* White text on dark overlay */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Subtle shadow for text readability */
+        }
+        #home h1 {
+            color: #FFFFFF;
+        }
+        #home p {
+            color: #E0E0E0; /* Slightly off-white for body text */
+        }
+
+
+        /* Header */
+        header {
+            background-color: #FF7043; /* Sunset Orange */
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Deeper shadow */
+        }
+        header a {
+            color: #FFFFFF;
+            transition: color 0.2s ease-in-out;
+        }
+        header a:hover {
+            color: #FDD835; /* Gold/Yellow on hover */
+        }
+        
+        /* Removed .impact-card styling as the elements are removed from HTML */
+
+
+        /* Service Cards - Enhanced Hover */
+        .service-card {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            color: #374151;
+            border-radius: 0.75rem; /* More rounded */
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .service-card h3 {
+            color: #FF7043; /* Sunset orange for service headings */
+        }
+        .service-card p {
+            color: #4B5563;
+        }
+        /* Images within service cards should be rounded */
+        .service-card img {
+            border-radius: 9999px; /* Fully rounded */
+            border: 2px solid #FF7043; /* Sunset orange border */
+        }
+
+
+        /* Team cards (This style is still here in case you re-add a team section, but the actual HTML is removed from About Us) */
+        .team-card {
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            color: #374151;
+            border-radius: 0.75rem;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .team-card img {
+            border-radius: 0.75rem; /* Rounded corners for team images */
+            border: 2px solid #8B4513; /* Caramel brown border */
+        }
+        .team-card h4 {
+            color: #FF7043; /* Sunset orange for names */
+        }
+        .team-card p {
+            color: #8B4513; /* Caramel brown for roles */
+        }
+
+
+        /* Technology items */
+        .tech-item {
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            color: #374151;
+            border-radius: 0.75rem;
+        }
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .tech-item p {
+            color: #FF7043; /* Sunset orange for tech names */
+        }
+        .tech-item img {
+             /* Adjust icon colors if they are SVG and can be styled */
+        }
+
+
+        /* Sponsor logos */
+        .sponsor-logo {
+            filter: grayscale(100%) brightness(120%); /* Desaturate and lighten for a subtle, aged look */
+            transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+        .sponsor-logo:hover {
+            filter: grayscale(0%) brightness(100%); /* Full color on hover */
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        /* Budget items */
+        .budget-item {
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            color: #374151;
+            border-radius: 0.75rem;
+        }
+        .budget-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .budget-item h3 {
+            color: #FF7043; /* Sunset orange for budget item headings */
+        }
+        .budget-item p {
+            color: #4B5563;
+        }
+
+        /* Gallery Image Hover */
+        .gallery-image {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 2px solid #8B4513; /* Caramel border for gallery images */
+        }
+        .gallery-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85); /* Slightly darker overlay */
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-content {
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            display: block;
+            margin: auto;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5); /* Stronger shadow */
+        }
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #F8F8F8; /* Light gray close button */
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-button:hover, .close-button:focus {
+            color: #FF7043; /* Sunset orange on hover */
+        }
+        .caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #F0F0F0; /* Lighter gray caption */
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* Accordion (FAQ) */
+        .accordion-header {
+            cursor: pointer;
+            padding: 1.25rem;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E0E0E0; /* Softer border */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            color: #374151;
+        }
+        .accordion-header:hover {
+            background-color: #FFF8F0; /* Very light orange on hover */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .accordion-header.active {
+            background-color: #FFCCBC; /* Lighter sunset orange for active */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-bottom: none;
+        }
+        .accordion-header .arrow {
+            transition: transform 0.3s ease;
+            color: #FF7043; /* Sunset orange arrow */
+        }
+        .accordion-header.active .arrow {
+            transform: rotate(90deg);
+            color: #8B4513; /* Caramel brown when active */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 1.25rem;
+            background-color: #FDF5E6; /* Sand beige for content */
+            border: 1px solid #E0E0E0;
+            border-top: none;
+            border-radius: 0 0 0.75rem 0.75rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            color: #4B5563;
+        }
+        .accordion-content.open {
+            max-height: 500px; /* Adjust as needed for content length */
+            padding: 1.25rem;
+        }
+
+        /* Form Specific Styles */
+        #inquiry form, #contact form {
+            background-color: #FFFFFF;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            color: #374151;
+        }
+        #inquiry label, #contact label {
+            color: #8B4513; /* Caramel brown labels */
+        }
+        #inquiryFormStatus, #contactFormStatus {
+            font-weight: 600;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            background-color: #E8F5E9; /* Light green */
+            border: 1px solid #A5D6A7;
+            color: #2E7D32; /* Dark green text */
+        }
+        #inquiryFormStatus.text-red-500, #contactFormStatus.text-red-500 {
+            background-color: #FFEBEE; /* Light red */
+            border: 1px solid #EF9A9A;
+            color: #C62828; /* Dark red text */
+        }
+
+        /* General button styling */
+        button[type="submit"] {
+            background-color: #FF7043; /* Sunset orange */
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: #FFFFFF;
+        }
+        button[type="submit"]:hover {
+            background-color: #E65100; /* Darker orange on hover */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Input fields */
+        input[type="text"], input[type="email"], textarea {
+            background-color: #FDF5E6; /* Sand beige for inputs */
+            color: #374151;
+            border: 1px solid #D1D5DB; /* Light gray border */
+            border-radius: 0.5rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            border-color: #FF7043; /* Sunset orange border on focus */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 112, 67, 0.3); /* Sunset orange glow on focus */
+        }
+
+        /* General Section Backgrounds */
+        section {
+            background-color: #FFFFFF;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        section:nth-child(even) { /* Alternate light beige background */
+            background-color: #FDF5E6; /* Sand beige */
+        }
+        /* About Us specific styles (adjusted for new theme) */
+        #about .bg-green-50 {
+            background-color: #FFECB3; /* Lighter caramel brown/creamy for Vision & Mission box */
+            color: #374151;
+        }
+        #about p.text-gray-600 {
+            color: #4B5563; /* Medium gray for readability */
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #374151; /* Dark gray/forest dark */
+            color: #E5E7EB;
+        }
+        footer a {
+            color: #FF7043; /* Sunset orange links */
+        }
+        footer a:hover {
+            color: #FDD835; /* Gold/Yellow on hover */
+        }
+
+        /* Modal specific CSS (Nature-Friendly Theme) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75); /* Darker transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: #FDF5E6; /* Sand beige background for content */
+            padding: 2.5rem;
+            border-radius: 1rem; /* More rounded */
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Stronger shadow */
+            border: 2px solid #FF7043; /* Sunset orange border */
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            color: #374151; /* Darker text */
+        }
+
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            color: #8B4513; /* Caramel brown close button */
+            cursor: pointer;
+            transition: color 0.2s ease-in-out;
+        }
+        .modal-close-button:hover {
+            color: #FF7043; /* Sunset orange on hover */
+        }
+
+        .modal-content h1, .modal-content h2, .modal-content h3 {
+            color: #FF7043; /* Sunset orange for headings within modals */
+            margin-bottom: 0.75rem;
+        }
+        .modal-content p, .modal-content ul, .modal-content ul li {
+            color: #4B5563; /* Medium gray for readability */
+        }
+        .modal-content a {
+            color: #8B4513; /* Caramel brown for links */
+            text-decoration: underline;
+        }
+        .modal-content a:hover {
+            color: #FF7043;
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 22px; /* Slightly larger */
+            border: none;
+            outline: none;
+            background-color: #FF7043; /* Sunset orange background */
+            color: white;
+            cursor: pointer;
+            padding: 12px 18px; /* Slightly larger padding */
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, opacity 0.3s, transform 0.2s;
+        }
+
+        #backToTopBtn:hover {
+            background-color: #E65100; /* Darker orange on hover */
+            opacity: 0.9;
+            transform: translateY(-3px); /* Slight lift on hover */
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Header -->
+    <header class="text-white p-4 shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold flex items-center gap-2">
+                <img src="images/logo_large.webp" alt="Good for People Logo" class="h-8 w-8 rounded-full"> 
+                Good for People
+            </a>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="hover:text-caramel-brown transition-colors">About Us</a></li>
+                    <li><a href="#services" class="hover:text-caramel-brown transition-colors">Our Services</a></li>
+                    <li><a href="#team" class="hover:text-caramel-brown transition-colors">Our Team</a></li>
+                    <li><a href="#technologies" class="hover:text-caramel-brown transition-colors">Our Technologies</a></li>
+                    <li><a href="#impact" class="hover:text-caramel-brown transition-colors">Our Impact</a></li>
+                    <li><a href="#sponsors" class="hover:text-caramel-brown transition-colors">Sponsors</a></li>
+                    <li><a href="#budget" class="hover:text-caramel-brown transition-colors">Budget</a></li>
+                    <li><a href="#gallery" class="hover:text-caramel-brown transition-colors">Gallery</a></li>
+                    <li><a href="#faq" class="hover:text-caramel-brown transition-colors">FAQ</a></li>
+                    <li><a href="#inquiry" class="hover:text-caramel-brown transition-colors">Inquiry</a></li>
+                    <li><a href="#contact" class="hover:text-caramel-brown transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="h-screen flex items-center justify-center text-white text-center">
+        <div class="bg-black-opacity-60 p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+            <h1 class="text-5xl font-extrabold mb-4">Empowering Communities, Inspiring Change</h1>
+            <p class="text-xl mb-8">Your mission to create positive impact begins here. Together, we can make a difference!</p>
+            <p class="text-lg leading-relaxed mt-8">
+                Good for People is dedicated to fostering positive change by empowering communities worldwide.
+                Through our various initiatives, we strive to meet essential needs and create sustainable
+                opportunities for growth, ensuring a brighter future for all. Join us in making a lasting impact.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">About Us</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Our History</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Founded in 2010, Good for People began as a small community initiative in South Africa.
+                        What started with weekly food drives has grown into an international organization operating
+                        in 15 countries, serving over 1.2 million beneficiaries annually.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Vision & Mission</h3>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <p class="font-semibold mb-2">Vision:</p>
+                        <p class="text-gray-600 mb-4">"A world where every individual has access to basic needs and opportunities for growth"</p>
+                        <p class="font-semibold mb-2">Mission:</p>
+                        <p class="text-gray-600">"To empower communities through sustainable development programs and emergency relief initiatives"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="images/food distri..1.jpg" alt="Food Distribution service" class="w-32 h-32 mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-3">🍎 Food Distribution</h3>
+                    <p class="text-gray-600">Weekly community pantries and emergency relief operations serving fresh meals to families in need.</p>
+                </div>
+                <div class="service-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="images/educational pro..1.jpg" alt="Educational Programs service" class="w-32 h-32 mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-3">📚 Educational Programs</h3>
+                    <p class="text-gray-600">After-school tutoring, vocational training, and scholarship opportunities for underprivileged youth.</p>
+                </div>
+                <div class="service-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="https://i.ibb.co/d0SBdH9X/Best-Healthcare-Systems-in-the-World.png" alt="Healthcare Initiatives service" class="w-32 h-32 mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-3">🏥 Healthcare Services</h3>
+                    <p class="text-gray-600">Delivering essential medical supplies and health awareness campaigns.</p>
+                </div>
+                <div class="service-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="images/community dev..1.jpg" alt="Community Development service" class="w-32 h-32 mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-3">🌱 Community Development</h3>
+                    <p class="text-gray-600">Empowering local communities with resources for self-sufficiency and growth.</p>
+                </div>
+                <div class="service-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="images/volunteer-in-South-Africa.jpeg" alt="Sustainable Agriculture service" class="w-32 h-32 mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold mb-3">🤝 Volunteer Opportunities</h3>
+                    <p class="text-gray-600">Local and international volunteering programs with full orientation and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section (Re-added as a separate section) -->
+    <section id="team" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Dedicated Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="team-card p-6 rounded-lg shadow-md text-center">
+                    <img src="images/Screenshot 2025-05-30 142218.png" alt="Neo Monamatha, Founder & CEO" class="w-32 h-32 mx-auto mb-4 rounded-full object-cover">
+                    <h3 class="text-xl font-semibold mb-1">Neo Monamatha</h3>
+                    <p class="text-gray-600 mb-2">Founder & CEO</p>
+                    <p class="text-gray-700 text-sm">Passionate about community empowerment and sustainable development.</p>
+                </div>
+                <div class="team-card p-6 rounded-lg shadow-md text-center">
+                    <img src="images/david lee.jpg" alt="David Lee, Operations Manager" class="w-32 h-32 mx-auto mb-4 rounded-full object-cover">
+                    <h3 class="text-xl font-semibold mb-1">David Lee</h3>
+                    <p class="text-gray-600 mb-2">Operations Manager</p>
+                    <p class="text-gray-700 text-sm">Ensures our programs run smoothly and efficiently on the ground.</p>
+                </div>
+                <div class="team-card p-6 rounded-lg shadow-md text-center">
+                    <img src="images/marcia.jpeg" alt="Maria Garcia, Program Coordinator" class="w-32 h-32 mx-auto mb-4 rounded-full object-cover">
+                    <h3 class="text-xl font-semibold mb-1">Maria Garcia</h3>
+                    <p class="text-gray-600 mb-2">Program Coordinator</p>
+                    <p class="text-gray-700 text-sm">Manages and oversees the implementation of our various initiatives.</p>
+                </div>
+                <div class="team-card p-6 rounded-lg shadow-md text-center">
+                    <img src="images/House_wilson_1.webp" alt="James Wilson, Volunteer Lead" class="w-32 h-32 mx-auto mb-4 rounded-full object-cover">
+                    <h3 class="text-xl font-semibold mb-1">James Wilson</h3>
+                    <p class="text-gray-600 mb-2">Volunteer Lead</p>
+                    <p class="text-gray-700 text-sm">Recruits and coordinates our amazing team of dedicated volunteers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Core Technologies</h2>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+
+                <!-- HTML5 -->
+                <div class="tech-item flex flex-col items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5 Icon" class="w-20 h-20 mb-2">
+                    <p class="text-lg font-medium">HTML5</p>
+                </div>
+
+                <!-- CSS3 -->
+                <div class="tech-item flex flex-col items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3 Icon" class="w-20 h-20 mb-2">
+                    <p class="text-lg font-medium">CSS3</p>
+                </div>
+
+                <!-- Tailwind CSS -->
+                <div class="tech-item flex flex-col items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS Icon" class="w-20 h-20 mb-2">
+                    <p class="text-lg font-medium">Tailwind CSS</p>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="tech-item flex flex-col items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript Icon" class="w-20 h-20 mb-2">
+                    <p class="text-lg font-medium">JavaScript</p>
+                </div>
+
+                <!-- PHP (Example of adding more) -->
+                <div class="tech-item flex flex-col items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP Icon" class="w-20 h-20 mb-2">
+                    <p class="text-lg font-medium">PHP</p>
+                </div>
+
+                <!-- MySQL (Example of adding more) -->
+                <div class="tech-item flex flex-col items-center p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL Icon" class="w-20 h-20 mb-2">
+                    <p class="text-lg font-medium">MySQL</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section (The numbers for this section are no longer dynamically counted but are still displayed) -->
+    <section id="impact" class="py-20 bg-gray-100 text-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12">Our Impact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="impact-card p-8 rounded-lg shadow-lg">
+                    <h3 class="text-5xl font-extrabold" >1,254,300</h3>
+                    <p class="text-xl mt-2">Meals Distributed</p>
+                </div>
+                <div class="impact-card p-8 rounded-lg shadow-lg">
+                    <h3 class="text-5xl font-extrabold" >2,350</h3>
+                    <p class="text-xl mt-2">Active Volunteers</p>
+                </div>
+                <div class="impact-card p-8 rounded-lg shadow-lg">
+                    <h3 class="text-5xl font-extrabold" >86</h3>
+                    <p class="text-xl mt-2">Communities Served</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors & Partners Section -->
+    <section id="sponsors" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12">Our Valued Sponsors & Partners</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-center">
+                <img src="https://i.ibb.co/rGptZZYN/2758150.jpg" alt="United Nations" class="sponsor-logo mx-auto h-16 w-full object-contain">
+                <img src="https://i.ibb.co/ycYPxFqZ/World-Health-Organization-WHO-Symbole.jpg" alt="World Health Organization" class="sponsor-logo mx-auto h-16 w-full object-contain">
+                <img src="https://i.ibb.co/1G3txzKp/coat-of-arms-of-south-africa.png" alt="South African Government" class="sponsor-logo mx-auto h-16 w-full object-contain">
+                <img src="https://i.ibb.co/tp0dT5CV/Sanparks-width-800.jpg" alt="South African National Parks" class="sponsor-logo mx-auto h-16 w-full object-contain">
+            </div>
+            <p class="mt-12 text-lg text-gray-700">Interested in becoming a partner? <a href="#inquiry" class="text-sunset-orange hover:underline font-semibold">Get in touch!</a></p>
+        </div>
+    </section>
+
+    <!-- Project Budget Section -->
+    <section id="budget" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Project Budget Allocation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="budget-item p-6 text-center rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-3">Program Expenses (70%)</h3>
+                    <p class="text-gray-700">Direct costs for food distribution, educational supplies, medical aid, and community development projects. This is where the majority of your support goes.</p>
+                </div>
+                <div class="budget-item p-6 text-center rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-3">Operational Costs (15%)</h3>
+                    <p class="text-gray-700">Includes administration, staff salaries (minimal), office supplies, and utilities essential for smooth functioning.</p>
+                </div>
+                <div class="budget-item p-6 text-center rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-3">Fundraising & Outreach (10%)</h3>
+                    <p class="text-gray-700">Costs associated with raising awareness, volunteer recruitment, and securing further support for our initiatives.</p>
+                </div>
+                <div class="budget-item p-6 text-center rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-3">Contingency & Reserves (5%)</h3>
+                    <p class="text-gray-700">Allocated for unforeseen emergencies, new project opportunities, and ensuring long-term sustainability.</p>
+                </div>
+            </div>
+            <p class="text-center mt-12 text-lg text-gray-700">We are committed to transparency and efficient use of funds. View our <a href="#" class="text-sunset-orange hover:underline font-semibold">Annual Reports</a> for more detail.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Gallery</h2>
+
+            <div id="galleryImages" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/C3Jd49Vw/high-school-programs.jpg" alt="Students in high school programs" class="gallery-image w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/HfnTm0ZX/ph-21813-79091.jpg" alt="Community members receiving aid" class="gallery-image w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/n8LRjh4f/766999-700x341.jpg" alt="Children learning in a classroom" class="gallery-image w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/Dg1nZXcM/Whats-App-Image-2020-06-25-at-7-27-47-PM.jpg" alt="Volunteers preparing food packages" class="gallery-image w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/d0SBdH9X/Best-Healthcare-Systems-in-the-World.png" alt="Medical staff assisting patients" class="gallery-image w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.ibb.co/LzxvC7Kk/medical-nurse-sitting-male-patient-waiting-area-showing-checkup-report-files-with-exam-diagnosis-spe.jpg" alt="Nurse explaining medical report to patient" class="gallery-image w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item hidden">
+                    <img src="images/Charity-work.webp" alt="Group of volunteers smiling" class="gallery-image w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item hidden">
+                    <img src="images/volunteer-banner2.jpg" alt="Community gathering event" class="gallery-image w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item hidden">
+                    <img src="images/p12_epwp.jpg" alt="Donation box with supplies" class="gallery-image w-full h-64 object-cover">
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <button id="toggleGalleryButton" class="bg-sunset-orange text-white py-2 px-6 rounded-lg hover:bg-caramel-brown transition-colors shadow-md font-bold">Show More</button>
+            </div>
+        </div>
+
+        <div id="imageLightbox" class="lightbox">
+            <span class="close-button">×</span>
+            <img class="lightbox-content" id="lightboxImage">
+            <div id="caption" class="caption"></div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <div class="accordion-header flex justify-between items-center p-4 rounded-lg shadow-sm cursor-pointer mb-2">
+                        <h3 class="text-lg font-semibold">What is the mission of Good for People?</h3>
+                        <span class="arrow text-xl">&#9658;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pb-4">Our mission is to empower communities through sustainable development programs and emergency relief initiatives, striving for a world where every individual has access to basic needs and opportunities for growth.</p>
+                        <p class="pb-4">Learn more about our core values and long-term vision on our <a href="#about" class="text-sunset-orange hover:underline">About Us</a> page.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header flex justify-between items-center p-4 rounded-lg shadow-sm cursor-pointer mb-2">
+                        <h3 class="text-lg font-semibold">How can I volunteer?</h3>
+                        <span class="arrow text-xl">&#9658;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pb-4">Becoming a volunteer is simple! You can start by filling out our <a href="#inquiry" class="text-sunset-orange hover:underline">Inquiry Form</a>, specifying your interest in volunteering. Our dedicated volunteer coordinator will then connect with you to discuss available opportunities, required training, and how you can best contribute to our impactful projects. We welcome diverse skills and backgrounds!</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header flex justify-between items-center p-4 rounded-lg shadow-sm cursor-pointer mb-2">
+                        <h3 class="text-lg font-semibold">What kind of impact do you make?</h3>
+                        <span class="arrow text-xl">&#9658;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pb-4">We are proud of the tangible impact we've made! Annually, we distribute millions of meals, engage thousands of dedicated volunteers, and serve numerous communities across multiple countries. Our programs focus on critical areas like food distribution, educational support, healthcare initiatives, and sustainable community development. Visit our <a href="#impact" class="text-sunset-orange hover:underline">Our Impact</a> section for a visual representation of our achievements!</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header flex justify-between items-center p-4 rounded-lg shadow-sm cursor-pointer mb-2">
+                        <h3 class="text-lg font-semibold">Are my donations tax-deductible?</h3>
+                        <span class="arrow text-xl">&#9658;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="pb-4">Yes, Good for People is a registered non-profit organization, and all donations are tax-deductible to the fullest extent of the law. Upon successful processing of your contribution, you will receive an official tax receipt. Your generosity directly fuels our mission and helps us continue our vital work.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <p class="text-lg text-gray-700">Have more questions? <a href="#contact" class="text-sunset-orange hover:underline font-semibold">Contact us directly!</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Form Section -->
+    <section id="inquiry" class="py-20 bg-gray-100">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="p-8 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold mb-8 text-center">Inquiry Form</h2>
+                <form id="inquiryForm" class="space-y-6">
+                    <div>
+                        <label for="inquiryName" class="block mb-2 font-medium">Full Name</label>
+                        <input type="text" id="inquiryName" name="fullName" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sunset-orange" required>
+                        <span id="inquiryNameError" class="text-red-500 text-sm hidden"></span>
+                    </div>
+                    <div>
+                        <label for="inquiryEmail" class="block mb-2 font-medium">Email Address</label>
+                        <input type="email" id="inquiryEmail" name="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sunset-orange" required>
+                        <span id="inquiryEmailError" class="text-red-500 text-sm hidden"></span>
+                    </div>
+                    <div>
+                        <label for="inquirySubject" class="block mb-2 font-medium">Subject</label>
+                        <input type="text" id="inquirySubject" name="subject" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sunset-orange" required>
+                        <span id="inquirySubjectError" class="text-red-500 text-sm hidden"></span>
+                    </div>
+                    <div>
+                        <label for="inquiryMessage" class="block mb-2 font-medium">Message</label>
+                        <textarea id="inquiryMessage" name="message" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sunset-orange h-32" required></textarea>
+                        <span id="inquiryMessageError" class="text-red-500 text-sm hidden"></span>
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-lg bg-sunset-orange hover:bg-caramel-brown text-white">
+                        Submit Inquiry
+                    </button>
+                    <div id="inquiryFormStatus" class="mt-4 text-center text-sm font-semibold hidden"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="p-8 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="p-6 rounded-lg shadow-sm bg-sand-beige">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-6 h-6 mr-3 text-sunset-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="font-semibold">Email:</span>
+                        </div>
+                        <p class="text-gray-700">info@goodforpeople.org</p>
+                    </div>
+                    <div class="p-6 rounded-lg shadow-sm bg-sand-beige">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-6 h-6 mr-3 text-sunset-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <span class="font-semibold">Phone:</span>
+                        </div>
+                        <p class="text-gray-700">+27 (66) 567-8900</p>
+                    </div>
+                    <div class="md:col-span-2 text-center p-6 rounded-lg shadow-sm bg-sand-beige">
+                        <div class="flex items-center mb-4 justify-center">
+                            <svg class="w-6 h-6 mr-3 text-sunset-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <h3 class="text-xl font-semibold">Our Address</h3>
+                        </div>
+                        <p class="text-gray-700">125 Madiba Street, Pretoria, Central, 0002</p>
+                    </div>
+                    <!-- Operating Hours -->
+                    <div class="md:col-span-2 text-center mt-4 p-6 rounded-lg shadow-sm bg-sand-beige">
+                        <div class="flex items-center mb-4 justify-center">
+                            <svg class="w-6 h-6 mr-3 text-sunset-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <h3 class="text-xl font-semibold">Operating Hours</h3>
+                        </div>
+                        <p class="text-gray-700">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        <p class="text-gray-700">Saturday: 10:00 AM - 2:00 PM</p>
+                        <p class="text-gray-700">Sunday: Closed</p>
+                    </div>
+                    <!-- Iframe Map -->
+                    <div class="md:col-span-2 mt-8">
+                        <iframe src="https://storage.googleapis.com/maps-solutions-uf775axpqv/locator-plus/pq3p/locator-plus.html"
+                            width="100%" height="300"
+                            style="border:0; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="contactName" class="block mb-2 font-medium">Full Name</label>
+                        <input type="text" id="contactName" name="fullName" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sunset-orange" required>
+                        <span id="contactNameError" class="text-red-500 text-sm hidden"></span>
+                    </div>
+                    <div>
+                        <label for="contactEmail" class="block mb-2 font-medium">Email Address</label>
+                        <input type="email" id="contactEmail" name="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sunset-orange" required>
+                        <span id="contactEmailError" class="text-red-500 text-sm hidden"></span>
+                    </div>
+                    <div>
+                        <label for="contactMessage" class="block mb-2 font-medium">Message</label>
+                        <textarea id="contactMessage" name="message" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-sunset-orange h-32" required></textarea>
+                        <span id="contactMessageError" class="text-red-500 text-sm hidden"></span>
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-lg bg-sunset-orange hover:bg-caramel-brown text-white">
+                        Send Message
+                    </button>
+                    <div id="contactFormStatus" class="mt-4 text-center text-sm font-semibold hidden"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-forest-dark text-white py-8 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2025 Good for People. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="home.html" id="privacyPolicyLink" class="hover:text-sunset-orange transition-colors">Privacy Policy</a>
+                <a href="home.html" id="termsOfServiceLink" class="hover:text-sunset-orange transition-colors">Terms of Service</a>
+                <a href="home.html" id="sitemapLink" class="hover:text-sunset-orange transition-colors">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Policy Modals - Hidden by default -->
+    <!-- Privacy Policy Modal -->
+    <div id="privacyPolicyModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button">&times;</button>
+            <h1 class="text-3xl font-bold mb-4">Privacy Policy for Good for People</h1>
+            <p class="leading-relaxed mb-4">
+                Last Updated: June 18, 2025
+            </p>
+            <p class="leading-relaxed mb-4">
+                "Good for People" is committed to protecting the privacy of our website visitors, volunteers, and beneficiaries. This Privacy Policy outlines the types of information we collect, how we use it, and the steps we take to safeguard your personal data.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">1. Information We Collect</h2>
+            <p class="leading-relaxed mb-4">
+                We collect information to operate our services and improve your experience. The types of information we collect include:
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>Personal Identification Information:</strong> Name, email address, phone number, and postal address (e.g., when you fill out an inquiry form, sign up to volunteer, or make a donation).</li>
+                <li><strong>Technical Data:</strong> IP address, browser type, operating system, and website usage data collected via analytics tools (e.g., Google Analytics). This helps us understand how our site is used and how we can improve it.</li>
+                <li><strong>Communication Data:</strong> Records of your correspondence with us via email, phone, or inquiry forms.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mb-3">2. How We Use Your Information</h2>
+            <p class="leading-relaxed mb-4">
+                Your information helps us to:
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+                <li>Process your inquiries, volunteer applications, and donations.</li>
+                <li>Communicate with you about our projects, updates, and opportunities.</li>
+                <li>Improve and personalize your experience on our website.</li>
+                <li>Analyze website traffic and user behavior to enhance our services.</li>
+                <li>Comply with legal obligations and protect our rights.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mb-3">3. Data Sharing and Disclosure</h2>
+            <p class="leading-relaxed mb-4">
+                "Good for People" will not sell, rent, or trade your personal information to third parties. We may share your information with:
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>Service Providers:</strong> Trusted third-party service providers who assist us in operating our website, conducting our business, or serving our users, provided those parties agree to keep this information confidential.</li>
+                <li><strong>Legal Requirements:</strong> When required by law or in response to valid requests by public authorities (e.g., a court order or government agency).</li>
+                <li><strong>Protection of Rights:</strong> To protect the rights, property, or safety of "Good for People," our users, or the public.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mb-3">4. Data Security</h2>
+            <p class="leading-relaxed mb-4">
+                We implement a variety of security measures to maintain the safety of your personal information when you enter, submit, or access your personal information. These measures include data encryption, secure servers, and restricted access to personal data.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">5. Your Data Protection Rights</h2>
+            <p class="leading-relaxed mb-4">
+                Depending on your location, you may have the following rights regarding your personal data:
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>Right to Access:</strong> Request copies of your personal data.</li>
+                <li><strong>Right to Rectification:</strong> Request that we correct any information you believe is inaccurate or complete incomplete information.</li>
+                <li><strong>Right to Erasure:</strong> Request that we erase your personal data under certain conditions.</li>
+                <li><strong>Right to Restrict Processing:</strong> Request that we restrict the processing of your personal data under certain conditions.</li>
+                <li><strong>Right to Object to Processing:</strong> Object to our processing of your personal data under certain conditions.</li>
+            </ul>
+            <p class="leading-relaxed mb-4">
+                To exercise any of these rights, please contact us using the information provided in the "Contact Us" section.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">6. Third-Party Links</h2>
+            <p class="leading-relaxed mb-4">
+                Our website may contain links to third-party websites. These third-party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">7. Changes to This Privacy Policy</h2>
+            <p class="leading-relaxed mb-4">
+                "Good for People" reserves the right to update or change this Privacy Policy at any time. We will notify you of any changes by posting the new Privacy Policy on this page. Your continued use of the website after any modifications will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">8. Contact Us</h2>
+            <p class="leading-relaxed mb-4">
+                If you have any questions about this Privacy Policy, please contact us:
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>Email:</strong> info@goodforpeople.org</li>
+                <li><strong>Phone:</strong> +27 (66) 567-8900</li>
+                <li><strong>Address:</strong> 125 Madiba Street, Pretoria, Central, 0002</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsOfServiceModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button">&times;</button>
+            <h1 class="text-3xl font-bold mb-4">Terms of Service for Good for People</h1>
+            <p class="leading-relaxed mb-4">
+                Last Updated: June 18, 2025
+            </p>
+            <p class="leading-relaxed mb-4">
+                Welcome to "Good for People"! These Terms of Service ("Terms") govern your use of our website and services. By accessing or using our website, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the service.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">1. Acceptance of Terms</h2>
+            <p class="leading-relaxed mb-4">
+                By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement. Additionally, when using these particular services, you shall be subject to any posted guidelines or rules applicable to such services, which may be posted and modified from time to time. All such guidelines or rules are hereby incorporated by reference into these Terms of Service.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">2. Use of Website</h2>
+            <p class="leading-relaxed mb-4">
+                This website and its content are provided for informational and charitable purposes only. You agree to use the website only for lawful purposes and in a way that does not infringe the rights of, restrict or inhibit anyone else's use and enjoyment of the website. Prohibited behavior includes harassing or causing distress or inconvenience to any other user, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within our website.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">3. Intellectual Property</h2>
+            <p class="leading-relaxed mb-4">
+                The content, design, logos, and all other materials on this website are the property of "Good for People" or its content suppliers and are protected by international copyright laws. You may not reproduce, distribute, modify, display, or create derivative works from any part of this website without our prior written consent.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">4. User Contributions</h2>
+            <p class="leading-relaxed mb-4">
+                Any content you submit to the website, such as comments, messages, or form submissions, must be accurate, lawful, and not violate any third-party rights. By submitting content, you grant "Good for People" a non-exclusive, royalty-free, perpetual, and worldwide license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">5. Donations and Financial Transactions</h2>
+            <p class="leading-relaxed mb-4">
+                All donations made through the website are voluntary and non-refundable unless otherwise stated. We use secure third-party payment processors to handle transactions. By making a donation, you agree to their terms and conditions.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">6. Disclaimer of Warranties</h2>
+            <p class="leading-relaxed mb-4">
+                The website and its content are provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the website will be uninterrupted, error-free, or free of viruses or other harmful components.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">7. Limitation of Liability</h2>
+            <p class="leading-relaxed mb-4">
+                In no event shall "Good for People," its directors, employees, or agents be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the website; (iii) any content obtained from the website; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">8. Governing Law</h2>
+            <p class="leading-relaxed mb-4">
+                These Terms shall be governed and construed in accordance with the laws of South Africa, without regard to its conflict of law provisions.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">9. Changes to Terms</h2>
+            <p class="leading-relaxed mb-4">
+                We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">10. Contact Information</h2>
+            <p class="leading-relaxed mb-4">
+                If you have any questions about these Terms, please contact us:
+            </p>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>Email:</strong> info@goodforpeople.org</li>
+                <li><strong>Phone:</strong> +27 (66) 567-8900</li>
+                <li><strong>Address:</strong> 125 Madiba Street, Pretoria, Central, 0002</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sitemap Modal -->
+    <div id="sitemapModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button">&times;</button>
+            <h1 class="text-3xl font-bold mb-4">Sitemap for Good for People</h1>
+            <p class="leading-relaxed mb-4">
+                Last Updated: June 18, 2025
+            </p>
+            <p class="leading-relaxed mb-4">
+                This sitemap provides an overview of the main sections and pages available on the "Good for People" website, helping you navigate our content easily.
+            </p>
+
+            <h2 class="text-2xl font-bold mb-3">Main Navigation</h2>
+            <ul class="list-disc list-inside space-y-2">
+                <li><a href="#home" class="text-sunset-orange hover:underline">Home</a></li>
+                <li><a href="#about" class="text-sunset-orange hover:underline">About Us</a></li>
+                <li><a href="#services" class="text-sunset-orange hover:underline">Our Services</a></li>
+                <li><a href="#technologies" class="text-sunset-orange hover:underline">Our Technologies</a></li>
+                <li><a href="#impact" class="text-sunset-orange hover:underline">Our Impact</a></li>
+                <li><a href="#sponsors" class="text-sunset-orange hover:underline">Sponsors</a></li>
+                <li><a href="#budget" class="text-sunset-orange hover:underline">Budget</a></li>
+                <li><a href="#gallery" class="text-sunset-orange hover:underline">Gallery</a></li>
+                <li><a href="#faq" class="text-sunset-orange hover:underline">FAQ</a></li>
+                <li><a href="#inquiry" class="text-sunset-orange hover:underline">Inquiry</a></li>
+                <li><a href="#contact" class="text-sunset-orange hover:underline">Contact</a></li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mb-3">Key Content Areas</h2>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>About Us:</strong> Learn about our history, vision, and mission.</li>
+                <li><strong>Our Services:</strong> Details on food distribution, educational programs, healthcare, community development, sustainable agriculture, and environmental protection initiatives.</li>
+                <li><strong>Our Technologies:</strong> Overview of the technologies and skills utilized in our operations.</li>
+                <li><strong>Our Impact:</strong> Quantitative data on meals distributed, volunteers, and communities served.</li>
+                <!-- Removed this line as the team section is gone -->
+                <li><strong>Sponsors & Partners:</strong> Information on organizations supporting our mission.</li>
+                <li><strong>Project Budget:</strong> Transparency on how funds are allocated.</li>
+                <li><strong>Gallery:</strong> Visuals from our various projects and events.</li>
+                <li><strong>FAQ:</strong> Answers to frequently asked questions about our organization.</li>
+                <li><strong>Inquiry Form:</strong> A form to submit general inquiries.</li>
+                <li><strong>Contact Us:</strong> Our contact details and a direct message form.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">↑</button>
+
+    <!-- JavaScript Section (All Functionality) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Toggle Gallery Functionality
+            const galleryImagesContainer = document.getElementById('galleryImages');
+            const toggleButton = document.getElementById('toggleGalleryButton');
+            const initialVisibleCount = 6;
+
+            if (galleryImagesContainer && toggleButton) {
+                const galleryItems = Array.from(galleryImagesContainer.children);
+                let isExpanded = false;
+
+                if (galleryItems.length > initialVisibleCount) {
+                    for (let i = initialVisibleCount; i < galleryItems.length; i++) {
+                        galleryItems[i].classList.add('hidden');
+                    }
+                    toggleButton.style.display = 'block';
+                } else {
+                    toggleButton.style.display = 'none';
+                }
+
+                toggleButton.addEventListener('click', () => {
+                    if (!isExpanded) {
+                        for (let i = initialVisibleCount; i < galleryItems.length; i++) {
+                            galleryItems[i].classList.remove('hidden');
+                        }
+                        toggleButton.textContent = 'Show Less';
+                        isExpanded = true;
+                    } else {
+                        for (let i = initialVisibleCount; i < galleryItems.length; i++) {
+                            galleryItems[i].classList.add('hidden');
+                        }
+                        toggleButton.textContent = 'Show More';
+                        isExpanded = false;
+                    }
+                });
+            }
+
+            // Lightbox Functionality (for gallery images)
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const captionText = document.getElementById('caption');
+            const closeButton = document.querySelector('.lightbox .close-button');
+
+            document.querySelectorAll('.gallery-image').forEach(image => {
+                image.addEventListener('click', function() {
+                    lightbox.style.display = 'flex';
+                    lightboxImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                });
+            });
+
+            if (closeButton) {
+                closeButton.addEventListener('click', () => {
+                    lightbox.style.display = 'none';
+                });
+            }
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                    lightbox.style.display = 'none';
+                }
+            });
+
+            // Intersection Observer for Impact Cards animation (retained for other potential uses, though not for hero section now)
+            const impactCards = document.querySelectorAll('.impact-card');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // No need to unobserve if we want them to animate every time they enter viewport
+                        // For a one-time animation, you'd unobserve here.
+                    } else {
+                        // Optional: remove 'is-visible' if you want them to re-animate on re-scroll
+                        entry.target.classList.remove('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            impactCards.forEach(card => {
+                observer.observe(card);
+            });
+
+            // Form Validation and Submission (for both Inquiry and Contact forms)
+            const inquiryForm = document.getElementById('inquiryForm');
+            const contactForm = document.getElementById('contactForm');
+
+            function validateField(inputElement, errorElement, validationFn, errorMessage) {
+                if (!validationFn(inputElement.value)) {
+                    errorElement.textContent = errorMessage;
+                    errorElement.classList.remove('hidden');
+                    inputElement.classList.add('border-red-500');
+                    return false;
+                } else {
+                    errorElement.classList.add('hidden');
+                    inputElement.classList.remove('border-red-500');
+                    return true;
+                }
+            }
+
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            function isValidName(name) {
+                return name.trim().length >= 2;
+            }
+
+            function isValidSubject(subject) {
+                return subject.trim().length >= 5;
+            }
+
+            function isValidMessage(message) {
+                return message.trim().length >= 10;
+            }
+
+            if (inquiryForm) {
+                inquiryForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    let isValid = true;
+
+                    const nameInput = document.getElementById('inquiryName');
+                    const emailInput = document.getElementById('inquiryEmail');
+                    const subjectInput = document.getElementById('inquirySubject');
+                    const messageInput = document.getElementById('inquiryMessage');
+
+                    const nameError = document.getElementById('inquiryNameError');
+                    const emailError = document.getElementById('inquiryEmailError');
+                    const subjectError = document.getElementById('inquirySubjectError');
+                    const messageError = document.getElementById('inquiryMessageError');
+                    const formStatus = document.getElementById('inquiryFormStatus');
+
+                    isValid = validateField(nameInput, nameError, isValidName, 'Please enter a valid name (at least 2 characters).') && isValid;
+                    isValid = validateField(emailInput, emailError, isValidEmail, 'Please enter a valid email address (e.g., example@domain.com).') && isValid;
+                    isValid = validateField(subjectInput, subjectError, isValidSubject, 'Please enter a subject (at least 5 characters).') && isValid;
+                    isValid = validateField(messageInput, messageError, isValidMessage, 'Please enter a message (at least 10 characters).') && isValid;
+
+                    if (isValid) {
+                        formStatus.classList.remove('hidden', 'text-red-500');
+                        formStatus.classList.add('text-earth-green'); // Use new theme color for success
+                        formStatus.textContent = 'Submitting inquiry and generating personalized response...';
+
+                        try {
+                            let chatHistory = [];
+                            const userPrompt = `A user named "${nameInput.value}" with email "${emailInput.value}" submitted an inquiry with the subject "${subjectInput.value}" and message: "${messageInput.value}".
+                            Please provide a polite, encouraging, and informative response for their inquiry.
+                            If the subject is about "volunteering", suggest clear next steps for how they can volunteer with "Good for People".
+                            If the subject is about "sponsorship" or "donations", thank them for their interest and mention that a representative will contact them shortly regarding opportunities.
+                            For any other general inquiry, provide a warm thank you and confirm receipt of their message, assuring them someone will get back to them soon.
+                            Keep the response concise, under 150 words, and always maintain a positive and helpful tone. Do not include your name or any signature.`;
+
+                            chatHistory.push({ role: "user", parts: [{ text: userPrompt }] });
+
+                            const payload = { contents: chatHistory };
+                            const apiKey = ""; // Canvas will automatically provide this at runtime.
+
+                            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                            const response = await fetch(apiUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload)
+                            });
+
+                            const result = await response.json();
+
+                            if (result.candidates && result.candidates.length > 0 &&
+                                result.candidates[0].content && result.candidates[0].content.parts &&
+                                result.candidates[0].content.parts.length > 0) {
+                                const generatedText = result.candidates[0].content.parts[0].text;
+                                formStatus.classList.remove('text-earth-green');
+                                formStatus.classList.add('text-sunset-orange'); // Use sunset-orange for final success message
+                                formStatus.innerHTML = `<strong>Inquiry Submitted!</strong><br>${generatedText}`;
+                                inquiryForm.reset();
+                            } else {
+                                throw new Error('Invalid response structure from LLM.');
+                            }
+
+                        } catch (error) {
+                            console.error('Error calling Gemini API:', error);
+                            formStatus.classList.remove('text-earth-green', 'text-sunset-orange');
+                            formStatus.classList.add('text-red-500');
+                            formStatus.textContent = 'Failed to generate a personalized response. Your inquiry has been received, and we will get back to you soon.';
+                        }
+                    } else {
+                        formStatus.classList.remove('hidden', 'text-earth-green', 'text-sunset-orange');
+                        formStatus.classList.add('text-red-500');
+                        formStatus.textContent = 'Please correct the highlighted errors in the form.';
+                    }
+                });
+            }
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    let isValid = true;
+
+                    const nameInput = document.getElementById('contactName');
+                    const emailInput = document.getElementById('contactEmail');
+                    const messageInput = document.getElementById('contactMessage');
+
+                    const nameError = document.getElementById('contactNameError');
+                    const emailError = document.getElementById('contactEmailError');
+                    const messageError = document.getElementById('contactMessageError');
+                    const formStatus = document.getElementById('contactFormStatus');
+
+                    isValid = validateField(nameInput, nameError, isValidName, 'Please enter your full name (at least 2 characters).') && isValid;
+                    isValid = validateField(emailInput, emailError, isValidEmail, 'Please enter a valid email address (e.g., example@domain.com).') && isValid;
+                    isValid = validateField(messageInput, messageError, isValidMessage, 'Please enter a message (at least 10 characters).') && isValid;
+
+                    if (isValid) {
+                        formStatus.classList.remove('hidden', 'text-red-500');
+                        formStatus.classList.add('text-earth-green'); // Use new theme color for success
+                        formStatus.textContent = 'Sending message...';
+
+                        setTimeout(() => {
+                            formStatus.textContent = 'Message sent successfully! We will get back to you soon.';
+                            contactForm.reset();
+                        }, 1500);
+                    } else {
+                        formStatus.classList.remove('hidden', 'text-earth-green');
+                        formStatus.classList.add('text-red-500');
+                        formStatus.textContent = 'Please correct the highlighted errors in the form.';
+                    }
+                });
+            }
+
+            // Accordion Functionality for FAQ
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const accordionContent = header.nextElementSibling;
+                    header.classList.toggle('active');
+                    accordionContent.classList.toggle('open');
+                });
+            });
+
+            // Modal Functionality for Privacy Policy, Terms, Sitemap
+            const privacyPolicyLink = document.getElementById('privacyPolicyLink');
+            const termsOfServiceLink = document.getElementById('termsOfServiceLink');
+            const sitemapLink = document.getElementById('sitemapLink');
+
+            const privacyPolicyModal = document.getElementById('privacyPolicyModal');
+            const termsOfServiceModal = document.getElementById('termsOfServiceModal');
+            const sitemapModal = document.getElementById('sitemapModal');
+
+            function openModal(modalElement) {
+                modalElement.classList.add('open');
+            }
+
+            function closeModal(modalElement) {
+                modalElement.classList.remove('open');
+            }
+
+            // Event Listeners for opening modals
+            if (privacyPolicyLink) {
+                privacyPolicyLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(privacyPolicyModal);
+                });
+            }
+            if (termsOfServiceLink) {
+                termsOfServiceLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(termsOfServiceModal);
+                });
+            }
+            if (sitemapLink) {
+                sitemapLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(sitemapModal);
+                });
+            }
+            // Event Listeners for closing modals
+            document.querySelectorAll('.modal-close-button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    closeModal(e.target.closest('.modal-overlay'));
+                });
+            });
+
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) { // Only close if clicked directly on overlay, not content
+                        closeModal(overlay);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal-overlay.open').forEach(modal => {
+                        closeModal(modal);
+                    });
+                }
+            });
+
+            // Back to Top Button functionality
+            let backToTopBtn = document.getElementById("backToTopBtn");
+
+            // When the user scrolls down 200px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction();
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    backToTopBtn.style.display = "block";
+                } else {
+                    backToTopBtn.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            window.topFunction = function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            };
+
+        }); // End DOMContentLoaded
+    </script>
+</body>
+</html>
